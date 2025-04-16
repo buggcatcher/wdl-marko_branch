@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Where Do Locals</title>
+	<link rel="stylesheet" href="form-style.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Tenax</h1>
+		
+		<div class="image-container">
+			<button class="nav-btn" onclick="changeImage(-1)">&#10094;</button>
+			<img id="image-display" src="img/01.jpeg" alt="img of the event">
+			<button class="nav-btn" onclick="changeImage(1)">&#10095;</button>
+		</div>
+
+		<div class="experience">
+			<p class="bold-grey">
+				<p>
+					<strong>NEXT EVENT 6 MAY (for info straight in chat)</strong><br>
+				  <strong>Tenax</strong>, the undisputed icon of Florence’s nightlife, is going on tour this summer with 
+				  <strong>6 exclusive events</strong> at <strong>Club del Diavolo</strong> in Quarrata.
+				  A summer format under the stars, bringing sound, visuals, and pure vibes – with all the energy of the legendary winter club.
+				</p>
+				<p>🗓 <strong>Winter Closing:</strong> May 10</p>
+				<p>🎉 <strong>Summer Events:</strong> Club del Diavolo, Quarrata</p>
+				<p>🚪 <strong>Winter Reopening:</strong> September 20</p>
+			  
+				<h4>Tables</h4>
+				<p><strong>Club del Diavolo</strong> → €50 per person</p>
+				<p>1 bottle of liquor included every 4 people</p>
+			  </p>
+			  
+		</div>
+
+      <!-- Messaggi di attesa e conferma -->
+		<div id="message-box" class="hidden">
+			<p id="message-text"></p>
+		</div>
+
+		<form id="booking-form" class="booking-form">
+			<label class="bold-text">Book Now</label>
+			<div class="empty-space"></div>
+    		<input type="date" id="date-picker" placeholder="mm/dd/yyyy" required>
+			<input type="text" id="main-guest" placeholder="Name and Surname" required>
+			<select id="guest-picker" required>
+				<option value="1">1 Adult €100</option>
+				<option value="2">2 Adults €190</option>
+				<option value="3">3 Adults €240</option>
+				<option value="4">4 Adults €290</option>
+				<option value="5">5 Adults €340</option>
+				<option value="6">6 Adults €390</option>
+			</select>
+			<select id="under-18" required>
+				<option value="0">No Minors</option>
+				<option value="1">1 Minor €50</option>
+				<option value="2">2 Minors €50</option>
+				<option value="3">3 Minors €50</option>
+				<option value="4">4 Minors €50</option>
+				<option value="5">5 Minors €50</option>
+			</select>
+			<input type="email" id="email" placeholder="example@email.com" required>
+			<input type="tel" id="phone" placeholder="+39 123 456 7890" required>
+			<textarea id="optional-request" placeholder="Optional Request"></textarea>
+			<br>
+			<br>
+			<button type="submit" class="check-btn">Send and chat via Whatsapp</button>
+			<br><br>
+			<button type="button" id="submit-email" class="check-btn">Send via email</button>
+			
+		</form>
+		<a href="https://wa.me/+393473119031">
+			<img src="icons/call.png" alt="contact" width="100px" height="100px" style="padding-left: 40%;">
+		</a>
+		<a href="../../sito/boxs/night-life.html">
+			<img src="../../sito/boxs/info-section/icons/back-arrow.png" alt="back" style="display: block; margin: 0 auto; width: 20%; height: auto;">
+		</a>
+  </div>
+  <script src="script.js"></script>
+</body>
