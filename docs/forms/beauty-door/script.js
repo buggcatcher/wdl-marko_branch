@@ -1,5 +1,5 @@
 let currentImageIndex = 0;
-const totalImages = 8;
+const totalImages = 4;
 const images = Array.from({ length: totalImages }, (_, index) => `img/${String(index + 1).padStart(2, '0')}.jpeg`);
 
 function changeImage(direction) {
@@ -41,7 +41,7 @@ function handleBookingSubmission(method) {
 			`- Phone: ${phone}%0A` +
 			(request ? `- Additional Request: ${request}%0A` : '');
 
-		const phoneNumber = "+393806452521";
+		const phoneNumber = "+393473119031";
 		const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 		window.open(whatsappLink, "_blank");
 	}
@@ -59,7 +59,7 @@ function handleBookingSubmission(method) {
 			(request ? `- Additional Request: ${request}\n` : '')
 		);
 
-		const destinationEmail = "prenotazioni@tuaemail.com";
+		const destinationEmail = "francesco@wheredolocals.com";
 		const mailtoLink = `mailto:${destinationEmail}?subject=${subject}&body=${body}`;
 		window.location.href = mailtoLink;
 	}

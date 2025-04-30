@@ -41,7 +41,7 @@ function handleBookingSubmission(method) {
 			`- Phone: ${phone}%0A` +
 			(request ? `- Additional Request: ${request}%0A` : '');
 
-		const phoneNumber = "+393806452521";
+		const phoneNumber = "+393473119031";
 		const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 		window.open(whatsappLink, "_blank");
 	}
@@ -59,7 +59,7 @@ function handleBookingSubmission(method) {
 			(request ? `- Additional Request: ${request}\n` : '')
 		);
 
-		const destinationEmail = "prenotazioni@tuaemail.com";
+		const destinationEmail = francesco@wheredolocals.com";
 		const mailtoLink = `mailto:${destinationEmail}?subject=${subject}&body=${body}`;
 		window.location.href = mailtoLink;
 	}
