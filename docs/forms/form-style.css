@@ -39,6 +39,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border-color:
       position: relative;
       width: 100%;
     }
@@ -93,7 +94,7 @@
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #3BD2C9;
       border-radius: 20px;
       font-size: 14px;
       background-color: white;
@@ -120,7 +121,7 @@
     }
     .check-btn {
       width: 100%;
-      background-color: #ffc107;
+      background-color: #3BD2C9;
       border: none;
       color: black;
       padding: 12px;
@@ -129,7 +130,7 @@
       cursor: pointer;
     }
     .check-btn:hover {
-      background-color: #e0a800;
+      background-color: #18b7ac;
     }
 
     #optional-request {

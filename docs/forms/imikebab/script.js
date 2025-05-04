@@ -26,10 +26,10 @@ function handleBookingSubmission(method) {
 	const phone = document.getElementById("phone").value.trim();
 	const request = document.getElementById("optional-request").value.trim();
 
-	if (!name || !date || !adults || !minors || !email || !phone) {
-		alert("Per favore, compila tutti i campi obbligatori.");
-		return;
-	}
+	// if (!name || !date || !adults || !minors || !email || !phone) {
+	// 	alert("Per favore, compila tutti i campi obbligatori.");
+	// 	return;
+	// }
 
 	if (method === "whatsapp") {
 		const message = `Hello, I would like to book the "Drink and Paint" experience. Here are my details:%0A` +
