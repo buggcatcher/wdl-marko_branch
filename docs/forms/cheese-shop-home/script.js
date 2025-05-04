@@ -1,5 +1,5 @@
 let currentImageIndex = 0;
-const totalImages = 15;
+const totalImages = 14;
 const images = Array.from({ length: totalImages }, (_, index) => `img/${String(index + 1).padStart(2, '0')}.jpeg`);
 
 function changeImage(direction) {
