@@ -65,3 +65,15 @@ if (emailButton) {
 		handleBookingSubmission("email");
 	});
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+	const input = document.getElementById("date-picker");
+  
+	if (input) {
+	  input.addEventListener("focus", () => input.type = "date");
+	  input.addEventListener("blur", () => {
+		if (!input.value) input.type = "text";
+	  });
+	}
+  });
+  
