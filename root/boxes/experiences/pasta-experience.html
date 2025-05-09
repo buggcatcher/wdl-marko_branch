@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pasta Experience – Where Do Locals</title>
+
+  <!-- Stile -->
   <link rel="stylesheet" href="../../css/form.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<!-- form.js userà questo attributo -->
+<body data-form-type="pasta-experience">
+
+  <!-- ✅ Header con logo cliccabile -->
+  <header class="menu-header">
+    <a href="../../index.html">
+      <img src="../../assets/img/original/logo-wdl.png" alt="Where Do Locals logo">
+    </a>
+  </header>
 
   <div class="container">
     <h2 class="section-title">Quality PASTA CLASSES in the Oltrarno area</h2>
@@ -21,62 +32,50 @@
       <p>An authentic hands-on culinary adventure in Florence, Italy.</p>
 
       <h4>PASTA MASTERCLASSES</h4>
-      <p>Get Ready for an Unforgettable Experience. You’ll choose the perfect menu based on your preferences and chef’s expert advice. Don’t forget to let us know about any allergies or dislikes.</p>
+      <p>Choose your ideal menu with guidance from our chef. Let us know about any allergies or preferences!</p>
 
       <h4>Time to Cook!</h4>
-      <p>We roll up our sleeves and dive straight into preparing delicious fresh pasta, tasty sauces, and of course… our beloved bruschette!</p>
+      <p>Roll pasta, craft sauces, toast bruschetta. It's a full hands-on session filled with flavors and fun.</p>
 
       <h4>Hands-On Pasta Making!</h4>
-      <p>Ravioli, tagliatelle, spaghetti—you name it! We shape, cut, and create the pasta from scratch, all while sharing laughs and culinary secrets. You’ll be working alongside our chef every step of the way.</p>
+      <p>Ravioli, tagliatelle, spaghetti—you name it. You’ll make it with the chef by your side.</p>
 
       <h4>Notes:</h4>
-      <p>Includes wine (2 glasses per guest or 1 bottle per 4). No high heels, please—comfort first!</p>
+      <p>Includes wine (2 glasses per guest or 1 bottle per 4). Please wear comfortable shoes.</p>
 
       <h4>What makes it unique?</h4>
-      <p>During this 2 and half-hour class, limited to 10–12 participants, you are guaranteed one-on-one interaction with your cooking instructor. Learn how to form and fill traditional stuffed pasta, how to prepare the dough, and how to pair with its sauce and bruschetta.</p>
+      <p>Small groups (max 12), full attention from the instructor, and real culinary skills to take home.</p>
 
-      <em>*If you have a intolerance write it to us on optional request*</em>
+      <em>*Have a food intolerance? Let us know in the optional request field below.</em>
     </section>
 
-    <form id="booking-form" class="booking-form">
-        <label class="bold-text">Add info — or just chat</label>
-        
-        <input type="text" id="date-picker" placeholder="Select a date (mm/dd/yyyy)">
-        <input type="text" id="main-guest" placeholder="Name and Surname">
-        
-        <select id="guest-picker">
-          <option value="1">1 Adult</option>
-          <option value="2">2 Adults</option>
-          <option value="3">3 Adults</option>
-          <option value="4">4 Adults</option>
-          <option value="5">5 Adults</option>
-          <option value="6">6 Adults</option>
-        </select>
-        
-        <select id="under-18">
-          <option value="0">No Minors</option>
-          <option value="1">1 Minor</option>
-          <option value="2">2 Minors</option>
-          <option value="3">3 Minors</option>
-          <option value="4">4 Minors</option>
-          <option value="5">5 Minors</option>
-        </select>
-        
-        <input type="email" id="email" placeholder="example@email.com">
-        <input type="tel" id="phone" placeholder="+39 123 456 7890">
-        <textarea id="optional-request" placeholder="Optional Request"></textarea>
-        
-        <button type="submit" class="check-btn">Send and chat via Whatsapp</button>
-        <button type="button" id="submit-email" class="check-btn">Send via email</button>
-      </form>
-      
+    <!-- ✅ Form injection target -->
+    <div id="form-container"></div>
 
+    <!-- ✅ Icon link navigation -->
     <div class="icon-links">
       <a href="https://wa.me/+393473119031"><img src="../../assets/img/icons/call.png" alt="contact" /></a>
       <a href="experience.html"><img src="../../assets/img/icons/back-arrow.png" alt="back" /></a>
     </div>
   </div>
 
+  <!-- ✅ Script per gestire form injection + messaggistica -->
   <script src="../../js/form.js"></script>
+
+  <!-- ✅ Scroll-hide effect for header -->
+  <script>
+    let lastScrollTop = 0;
+    const header = document.querySelector('.menu-header');
+
+    window.addEventListener('scroll', () => {
+      const current = window.pageYOffset;
+      if (current > lastScrollTop) {
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+      lastScrollTop = current;
+    });
+  </script>
 </body>
 </html>
