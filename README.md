@@ -1,4 +1,4 @@
-![Where Do Locals](assets/img/original/logo-wdl.png)
+![Where Do Locals](root/assets/img/original/logo-wdl.png)
 
 **Esperienze autentiche in Toscana.**  
 Web app mobile-first accessibile tramite QR code sul portachiavi delle case vacanza.
