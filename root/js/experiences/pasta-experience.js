@@ -51,19 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <p id="message-text"></p>
       </div>
 
-      <form id="booking-form" class="booking-form">
+      <form id="booking-form" class="booking-form" novalidate>
         <label class="bold-text" for="date-picker">Straight Booking</label>
+        <div></p></div>
+        <input type="text" id="date-picker" placeholder="Select a date">
 
-        <div class="floating-placeholder">
-          <input
-            type="date"
-            id="date-picker"
-            placeholder=""
-            required
-          />
-          <span class="fake-placeholder">Select a date</span>
-        </div>
-        <input type="text" id="main-guest" placeholder="Name and Surname" required>
+        <input type="text" id="main-guest" placeholder="Name and Surname">
         <select id="guest-picker">
           ${[...Array(6)].map((_,i)=>
             `<option value="${i+1}">${i+1} Adult${i>0?'s':''}</option>`
@@ -75,35 +68,52 @@ document.addEventListener("DOMContentLoaded", () => {
             `<option value="${i+1}">${i+1} Minor${i>0?'s':''}</option>`
           ).join('')}
         </select>
-        <input type="email" id="email" placeholder="example@email.com" required>
-        <input type="tel" id="phone" placeholder="+39 123 456 7890" required>
+        <input type="email" id="email" placeholder="example@email.com">
+        <input type="tel" id="phone" placeholder="+39 123 456 7890">
         <textarea id="optional-request" placeholder="Optional Request"></textarea>
         <button type="submit" class="check-btn">Send and chat via WhatsApp</button>
         <div></p></div>
         <button type="button" id="submit-email" class="check-btn">Send via email</button>
       </form>
     `;
+    const dateInput = document.getElementById('date-picker');
+    const picker = new Pikaday({
+      field: dateInput,
+      format: 'DD/MM/YYYY',
+      minDate: new Date(),
+      theme: 'dark-theme' // opzionale, vedi sotto per stile custom
+  });
 
-    const sendMsg = method => {
-      const val = id => document.getElementById(id).value.trim();
-      const msg = `Hello! I'd like to book "PASTA EXPERIENCE".
-
-📅 Date:  ${val("date-picker")}
-👤 Name:  ${val("main-guest")}
-🧑‍🤝‍🧑 Adults: ${val("guest-picker")}  👶 Minors: ${val("under-18")}
-📧 Email: ${val("email")}
-📞 Phone: ${val("phone")}
-${val("optional-request")?`📝 Notes: ${val("optional-request")}`:''}
-
-Looking forward to your reply!`;
-
-      if (method==="whatsapp") {
-        window.open(`https://wa.me/393473119031?text=${encodeURIComponent(msg)}`,"_blank");
-      } else {
-        window.location.href = 
-          `mailto:francesco@wheredolocals.com?subject=PASTA EXPERIENCE&body=${encodeURIComponent(msg)}`;
-      }
-    };
+  const sendMsg = method => {
+    const val = id => document.getElementById(id)?.value.trim() || '';
+    const lines = [
+      `Hello! I'd like to book "PASTA EXPERIENCE".`,
+      ``,
+      `📅 Date:  ${val("date-picker")}`,
+      `👤 Name:  ${val("main-guest")}`,
+      `🧑‍🤝‍🧑 Adults: ${val("guest-picker")}`,
+      `👶 Minors: ${val("under-18")}`,
+      `📧 Email: ${val("email")}`,
+      `📞 Phone: ${val("phone")}`,
+    ];
+  
+    if (val("optional-request")) {
+      lines.push(`📝 Notes: ${val("optional-request")}`);
+    }
+  
+    lines.push(``, `Looking forward to your reply!`);
+  
+    const msg = lines.join('\n');
+  
+    if (method === "whatsapp") {
+      window.open(`https://wa.me/393473119031?text=${encodeURIComponent(msg)}`, "_blank");
+    } else {
+      // convert newlines to %0A for mailto link
+      const mailMsg = encodeURIComponent(lines.join('%0A'));
+      window.location.href = `mailto:francesco@wheredolocals.com?subject=PASTA EXPERIENCE&body=${mailMsg}`;
+    }
+  };
+  
 
     document.getElementById("booking-form")
       .addEventListener("submit", e => { e.preventDefault(); sendMsg("whatsapp"); });
