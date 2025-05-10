@@ -1,10 +1,9 @@
 /* === Global === */
-body {
+body, h1, h2, h3, h4, h5, h6, a, button {
   font-family: 'Poppins', sans-serif;
-  color: #333;
+  color: #555454;
   background: #fff;
   margin: 0;
-  padding: 20px;
   line-height: 1.6;
 }
 
@@ -45,6 +44,67 @@ body {
   margin-bottom: 10px;
   text-align: left;
 }
+
+/* === GALLERY === */
+.gallery {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+  border-radius: 12px;
+}
+
+.gallery-track-container {
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  align-items: center; 
+  height: 400px;
+}
+
+.gallery-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  height: 100%; 
+}
+
+.gallery-slide img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; 
+  border-radius: 12px;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 12px;
+  border-radius: 50%;
+  z-index: 10;
+  user-select: none;
+}
+
+.gallery-btn.prev {
+  left: 10px;
+}
+.gallery-btn.next {
+  right: 10px;
+}
+
+
+
 
 .main-image img {
   width: 100%;
