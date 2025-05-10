@@ -47,12 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const formContainer = document.getElementById("form-container");
   if (formContainer) {
     formContainer.innerHTML = `
-      <div id="message-box" class="hidden"><p id="message-text"></p></div>
+      <div id="message-box" class="hidden">
+        <p id="message-text"></p>
+      </div>
+
       <form id="booking-form" class="booking-form">
         <label class="bold-text" for="date-picker">Straight Booking</label>
-        <div></p></div>
+
         <div class="floating-placeholder">
-          <input type="date" id="date-picker" required>
+          <input
+            type="date"
+            id="date-picker"
+            placeholder=""
+            required
+          />
           <span class="fake-placeholder">Select a date</span>
         </div>
         <input type="text" id="main-guest" placeholder="Name and Surname" required>

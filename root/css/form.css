@@ -1,5 +1,14 @@
 /* === Global === */
-body, h1, h2, h3, h4, h5, h6, a, button {
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #555454;
+  background: #fff;
+  margin: 0;
+  line-height: 1.6;
+  padding-top: 80px;
+}
+
+h1, h2, h3, h4, h5, h6, a, button {
   font-family: 'Poppins', sans-serif;
   color: #555454;
   background: #fff;
@@ -35,6 +44,7 @@ body, h1, h2, h3, h4, h5, h6, a, button {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
+  margin-top: 80px;
 }
 
 /* === Headings === */
@@ -251,35 +261,76 @@ body, h1, h2, h3, h4, h5, h6, a, button {
   }
 }
 
-/* floating placeholder */
+
+/* 1. Wrapper matches your other inputs */
 .floating-placeholder {
-  position: relative;
+  display: block;
+  width: 100%;
   margin-bottom: 12px;
+  position: relative;
+  height: 48px; /* match your inputs’ height */
 }
 
+/* 2. Style the date field exactly like your other inputs */
 .floating-placeholder input[type="date"] {
   width: 100%;
-  padding: 12px 12px 12px 16px;
+  padding: 12px 48px 12px 16px; /* leave room on right for icon */
+  font-size: 14px;
+  line-height: 1.4em;
   border: 1px solid #3BD2C9;
   border-radius: 20px;
-  font-size: 14px;
-  background-color: white;
-  color: black;
+  background: #fff;
+  color: #555454;
   box-sizing: border-box;
+  /* position it so the indicator sits on top: */
+  position: relative;
+  z-index: 1;
 }
 
+/* 3. Push the native picker indicator off to the right (still clickable) */
+.floating-placeholder input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 16px;    /* align with your padding */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;    /* small click area */
+  height: 24px;
+  color: transparent;
+  opacity: 1;     /* keep it interactive */
+  cursor: pointer;
+}
+
+/* 4. Add your own visible calendar icon */
+.floating-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  pointer-events: none;  /* let clicks pass through to the native picker */
+  z-index: 2;
+}
+
+/* 5. Fake placeholder matches your font size, color, etc. */
 .floating-placeholder .fake-placeholder {
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 16px;
   transform: translateY(-50%);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4em;
   color: #aaa;
   pointer-events: none;
   transition: opacity 0.2s ease;
-  font-size: 14px;
+  opacity: 1;
 }
 
+/* 6. Hide fake placeholder once focused or once a value is present */
 .floating-placeholder input:focus + .fake-placeholder,
-.floating-placeholder input:valid + .fake-placeholder {
+.floating-placeholder input:not(:placeholder-shown) + .fake-placeholder {
   opacity: 0;
 }
