@@ -108,8 +108,13 @@ Looking forward to your reply!`;
   let lastY = 0;
   window.addEventListener('scroll', () => {
     const y = window.pageYOffset;
-    // se scrolli in basso nasconde, se in alto mostra
-    header.style.transform = (y > lastY) ? 'translateY(-100%)' : 'translateY(0)';
+    if (y > lastY && y > header.offsetHeight) {
+      // scrolling down past header height → hide
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      // scrolling up or near top → show
+      header.style.transform = 'translateY(0)';
+    }
     lastY = y;
   });
 });
