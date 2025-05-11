@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       field: dateInput,
       format: 'DD/MM/YYYY',
       minDate: new Date(),
-      theme: 'dark-theme' // opzionale, vedi sotto per stile custom
+      theme: 'dark-theme' // opzionale
   });
 
   const sendMsg = method => {
@@ -108,8 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (method === "whatsapp") {
       window.open(`https://wa.me/393473119031?text=${encodeURIComponent(msg)}`, "_blank");
     } else {
-      // convert newlines to %0A for mailto link
-      const mailMsg = encodeURIComponent(lines.join('%0A'));
+      const mailMsg = encodeURIComponent(msg);
       window.location.href = `mailto:francesco@wheredolocals.com?subject=PASTA EXPERIENCE&body=${mailMsg}`;
     }
   };
