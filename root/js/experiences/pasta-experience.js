@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <form id="booking-form" class="booking-form" novalidate>
         <label class="bold-text" for="date-picker">Straight Booking</label>
         <div></p></div>
-        <input type="text" id="date-picker" placeholder="Select a date">
+        <input type="text" id="date-picker" placeholder="Select a date" readonly>
 
         <input type="text" id="main-guest" placeholder="Name and Surname">
         <select id="guest-picker">
