@@ -256,6 +256,7 @@ h1, h2, h3, h4, h5, h6, a, button {
 
   .container {
     padding: 0 12px;
+    max-width: 100%;
   }
 
   .section-title {
