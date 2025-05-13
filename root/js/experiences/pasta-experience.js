@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // === GALLERY ===
   const galleryContainer = document.getElementById("gallery-container");
   if (galleryContainer) {
-    const imageFiles = ["01.jpeg","02.jpeg","04.jpeg","05.jpeg","06.jpeg","07.jpeg","08.jpeg","09.jpeg"];
-    const basePath = "../../assets/img/boxes/experience/pasta_experience/";
+    const imageFiles = ["01.jpeg","02.jpeg","04.jpeg","05.jpeg","06.jpeg","07.jpeg","08.jpeg","09.jpeg"]; //file name of pic
+    const basePath = "../../assets/img/boxes/experience/pasta_experience/"; //path pic
     const images = imageFiles.map(f => basePath + f);
-
+//cambiare alt name linea 14
     galleryContainer.innerHTML = `
       <div class="gallery">
         <button class="gallery-btn prev">&#10094;</button>
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === FORM ===
+  // === FORM === //cambiare qui info form
   const formContainer = document.getElementById("form-container");
   if (formContainer) {
     formContainer.innerHTML = `
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <form id="booking-form" class="booking-form" novalidate>
-        <label class="bold-text" for="date-picker">Straight Booking</label>
+        <label class="bold-text" for="date-picker">Add info (optional) and chat!</label>
         <div></p></div>
         <input type="text" id="date-picker" placeholder="Select a date" readonly>
 
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.open(`https://wa.me/393473119031?text=${encodeURIComponent(msg)}`, "_blank");
     } else {
       const mailMsg = encodeURIComponent(msg);
-      window.location.href = `mailto:francesco@wheredolocals.com?subject=PASTA EXPERIENCE&body=${mailMsg}`;
+      window.location.href = `mailto:francesco@wheredolocals.com?subject=PASTA EXPERIENCE&body=${mailMsg}`; //cambiare nome experience
     }
   };
   
